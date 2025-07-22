@@ -13,7 +13,7 @@ def exp_model(t, A, k):
 def mm_model(S, Vmax, Km):
     return (Vmax * S) / (Km + S)
 
-def binding_model(S, kmax, Kd):
+def kmax_model(S, kmax, Kd):
     return (kmax * S) / (Kd + S)
 
 # === GUI App Class ===
@@ -144,10 +144,10 @@ class FittingApp:
                     eqn_str = r"$v = \frac{V_{max} \cdot [S]}{K_m + [S]}$"
                     model_suffix = "Michaelis_Menten"
                 case "k_obs vs [S]":
-                    model_func = binding_model
+                    model_func = kmax_model
                     param_names = ['k_max', 'K_d']
                     eqn_str = r"$k_{obs} = \frac{k_{max} \cdot [S]}{K_d + [S]}$"
-                    model_suffix = "Binding"
+                    model_suffix = "kmax"
                 case _:
                     raise ValueError("Invalid model selected.")
 
