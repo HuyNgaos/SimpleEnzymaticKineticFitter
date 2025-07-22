@@ -52,7 +52,7 @@ class FittingApp:
         tk.OptionMenu(master, self.model_var,
                       "Exponential",
                       "Michaelis-Menten",
-                      "Binding kinetics (k_obs vs [S])").grid(row=4, column=1)
+                      "k_obs vs [S]").grid(row=4, column=1)
 
         # Checkboxes
         self.include_fit_var = tk.BooleanVar(value=True)
@@ -143,7 +143,7 @@ class FittingApp:
                     param_names = ['Vmax', 'Km']
                     eqn_str = r"$v = \frac{V_{max} \cdot [S]}{K_m + [S]}$"
                     model_suffix = "Michaelis_Menten"
-                case "Binding kinetics (k_obs vs [S])":
+                case "k_obs vs [S]":
                     model_func = binding_model
                     param_names = ['k_max', 'K_d']
                     eqn_str = r"$k_{obs} = \frac{k_{max} \cdot [S]}{K_d + [S]}$"
